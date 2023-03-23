@@ -10,8 +10,8 @@ public class PanelController : MonoBehaviour
 
     public string language = "english";
 
-    [DllImport("__Internal")]
-    private static extern void GetData(int token_id);
+    public bool panelOpen = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,14 +34,17 @@ public class PanelController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Panel Update");
+        if (!panelOpen)
+        {
+            StopCoroutine("gettingData");
+        }
         if (Input.GetKeyDown(KeyCode.B) && gameObject.active)
         {
             Debug.Log("Popup");
+            
             var token_id = gameObject.GetComponentInParent<ArtController>().token_id;
-#if !UNITY_EDITOR && UNITY_WEBGL
-            GetData(token_id);
-#endif
+            StartCoroutine(gettingData(token_id.ToString()));
+            panelOpen = true;
             details.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.L) && gameObject.active)
@@ -75,6 +78,15 @@ public class PanelController : MonoBehaviour
         language = _language;
     }
 
+    IEnumerator gettingData(string tokenId)
+    {
 
+            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().GetNFT(tokenId);
+        while(true)
+        {
+            yield return new WaitForSeconds(10);
+            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().GetNFT(tokenId);
+        }
+    }
     
 }

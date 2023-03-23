@@ -1,21 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using System.Numerics;
 
 public class ButtonHandler : MonoBehaviour
 {
-    [DllImport("__Internal")]
-    private static extern void Bid(string data);
-
-    [DllImport("__Internal")]
-    private static extern void Withdraw(int id);
-
-    [DllImport("__Internal")]
-    private static extern void Resale(int id);
-
+    
     public GameObject inputForm;
     // Start is called before the first frame update
     void Start()
@@ -33,22 +26,24 @@ public class ButtonHandler : MonoBehaviour
         if (name == "Bid") {
             inputForm.SetActive(true);
         } else if (name == "Collect") {
-#if !UNITY_EDITOR
+            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Collect(MetaState.token_id.ToString());
+/*#if !UNITY_EDITOR
             Withdraw(MetaState.token_id);
-#endif
+#endif*/
         }
         else
         {
-#if !UNITY_EDITOR
+            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Resale(MetaState.token_id.ToString());
+/*#if !UNITY_EDITOR
             Resale(MetaState.token_id);
-#endif
+#endif*/
         }
     }
 
     public void onBid() {
-        var data = MetaState.token_id + "," + MetaState.bid;
-#if !UNITY_EDITOR
+        GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Bid(MetaState.token_id.ToString(), new BigInteger(Double.Parse(MetaState.bid)));
+/*#if !UNITY_EDITOR
         Bid(data);
-#endif
+#endif*/
     }
 }

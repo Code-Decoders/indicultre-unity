@@ -12,9 +12,6 @@ public class DetailController : MonoBehaviour
 
     private StarterAssets.StarterAssetsInputs playerInputs;
 
-
-    [DllImport("__Internal")]
-    private static extern void RemoveListener();
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +33,6 @@ public class DetailController : MonoBehaviour
         player.LockCameraPosition = false;
         MetaState.nft = null;
 
-#if !UNITY_EDITOR
-            RemoveListener();
-#endif
     }
 
     private void OnEnable()

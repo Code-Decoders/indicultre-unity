@@ -11,6 +11,14 @@ public class NFTData
     public string highest_bidder;
     public string end_timestamp;
 
+    public NFTData(int id, string owner, string min_bid, string highest_bidder, string end_timestamp) {
+        this.id = id;
+        this.owner = owner;
+        this.min_bid = min_bid;
+        this.highest_bidder = highest_bidder;
+        this.end_timestamp = end_timestamp;
+    }
+
     public string toString()
     {
         return "ID:" + this.id + " End TimeStamp:" + this.end_timestamp;

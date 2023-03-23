@@ -3,7 +3,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.InteropServices;
 using TMPro;
 
 public class CameraController : MonoBehaviour
@@ -13,8 +12,6 @@ public class CameraController : MonoBehaviour
     private bool groundedPlayer;
 
 
-    [DllImport("__Internal")]
-    private static extern void GetUser();
 
     private void Start()
     {
@@ -28,10 +25,10 @@ public class CameraController : MonoBehaviour
         //    data += (token_id + "@" + title + "@" + description + "\n");
         //}
         //Debug.Log(data);
-        Debug.Log(MetaState.nfts.nfts[1].ToString());
+        /*Debug.Log(MetaState.nfts.nfts[1].ToString());
 #if !UNITY_EDITOR
         GetUser();
-#endif
+#endif*/
     }
 
     private void Update()
