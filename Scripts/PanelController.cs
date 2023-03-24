@@ -12,6 +12,8 @@ public class PanelController : MonoBehaviour
 
     public bool panelOpen = false;
 
+    public double timer = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,24 +29,33 @@ public class PanelController : MonoBehaviour
         MetaState.token_id = token_id;
     }
 
-    private void OnDisable() { 
-        MetaState.token_id = 0;
+    private void OnDisable() {
     }
 
 
     private void Update()
     {
-        if (!panelOpen)
+        if (timer > 0f)
         {
-            StopCoroutine("gettingData");
+            timer = timer - Time.deltaTime;
+        }
+        if (panelOpen && timer <= 0f)
+        {
+            print("Token ID is");
+            var token_id = gameObject.GetComponentInParent<ArtController>().token_id;
+            print(token_id);
+            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().GetNFT(token_id.ToString());
+            timer = 10f;
+        }
+        if (gameObject.active)
+        {
+            panelOpen = true;
         }
         if (Input.GetKeyDown(KeyCode.B) && gameObject.active)
         {
             Debug.Log("Popup");
-            
-            var token_id = gameObject.GetComponentInParent<ArtController>().token_id;
-            StartCoroutine(gettingData(token_id.ToString()));
             panelOpen = true;
+            Debug.Log("Opening the Panel " + panelOpen);
             details.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.L) && gameObject.active)
@@ -78,15 +89,17 @@ public class PanelController : MonoBehaviour
         language = _language;
     }
 
-    IEnumerator gettingData(string tokenId)
+    /*IEnumerator gettingData(string tokenId)
     {
 
-            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().GetNFT(tokenId);
+        GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().GetNFT(tokenId);
+        Debug.Log("Starting Getting the Data");
         while(true)
         {
+            Debug.Log("Reload of Data");
             yield return new WaitForSeconds(10);
             GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().GetNFT(tokenId);
-        }
-    }
+        } x
+    }*/
     
 }

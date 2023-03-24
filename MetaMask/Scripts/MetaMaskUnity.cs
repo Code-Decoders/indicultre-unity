@@ -58,6 +58,7 @@ namespace MetaMask.Unity
                 if (instance == null)
                 {
                     var instances = FindObjectsOfType<MetaMaskUnity>();
+                    print(instances);
                     if (instances.Length > 1)
                     {
                         Debug.LogError("There are more than 1 instances of " + nameof(MetaMaskUnity) + " inside the scene, there should be only one.");
@@ -190,6 +191,8 @@ namespace MetaMask.Unity
 
                 // Load and configure the session
                 LoadSession();
+
+                MetaMaskDebug.Log("Metamask Instanitialize");
 
                 // Setup the wallet
                 this.wallet = new MetaMaskWallet(this.session, transport, socket, this.config.SocketUrl);

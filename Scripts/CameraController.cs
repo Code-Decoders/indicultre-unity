@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        print(GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().getUser());
         //var arts = GameObject.FindObjectsOfType<ArtController>();
         //string data = "sep=@\nToken Id, Name, Description\n";
         //for (int i = 0; i < arts.Length; i++)

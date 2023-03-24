@@ -11,6 +11,7 @@ using Nethereum.Hex.HexConvertors.Extensions;
 using Nethereum.Contracts;
 using Nethereum.Contracts.Extensions;
 using System.Numerics;
+using System;
 using Nethereum.RPC.Eth.DTOs;
 using Nethereum.Hex.HexTypes;
 using System.Threading.Tasks;
@@ -48,24 +49,26 @@ namespace IndiCultre
             return Web3.Convert.FromWei(value).ToString();
         }
 
-        public TransactionInput Collect(string id, string account)
+        public TransactionInput Collect(int id, string account)
         {
+            
             var contract = new ContractBuilder(ABI, ADDRESS);
-            var contractHandler = contract.GetFunctionBuilder("collect").CreateTransactionInput(account,new string[] { id});
+            var contractHandler = contract.GetFunctionBuilder("collect").CreateTransactionInput(account, new object[] { id });
             return contractHandler;
         }
 
-        public TransactionInput Bid(string id, string account, BigInteger bid)
+        public TransactionInput Bid(string id, string account, BigDecimal bid)
         {
+            Debug.Log("Bid: " + bid);
             var contract = new ContractBuilder(ABI, ADDRESS);
-            var contractHandler = contract.GetFunctionBuilder("bid").CreateTransactionInput(account,new HexBigInteger(new BigInteger(0)),new HexBigInteger(Web3.Convert.ToWei(bid)), new string[] { id });
+            var contractHandler = contract.GetFunctionBuilder("bid").CreateTransactionInput(account,new HexBigInteger(new BigInteger(0)),new HexBigInteger(Web3.Convert.ToWei(bid)), new object[] { ((int)Int64.Parse(id)) });
             return contractHandler;
         }
 
         public TransactionInput Resale(string id, string account)
         {
             var contract = new ContractBuilder(ABI, ADDRESS);
-            var contractHandler = contract.GetFunctionBuilder("startAuction").CreateTransactionInput(account, new string[] { id });
+            var contractHandler = contract.GetFunctionBuilder("startAuction").CreateTransactionInput(account, new object[] { ((int)Int64.Parse(id)) });
             return contractHandler;
         }
 
@@ -330,7 +333,7 @@ namespace IndiCultureNFT
         public TransactionInput approve(string id, string from)
         {
             var contract = new ContractBuilder(ABI, ADDRESS);
-            var contractHandler = contract.GetFunctionBuilder("approve").CreateTransactionInput(from, new string[] { new IndiCultre.IndiCultreConsole().ADDRESS, id });
+            var contractHandler = contract.GetFunctionBuilder("approve").CreateTransactionInput(from, new object[] { new IndiCultre.IndiCultreConsole().ADDRESS,  ((int)Int64.Parse(id))});
             return contractHandler;
         }
 

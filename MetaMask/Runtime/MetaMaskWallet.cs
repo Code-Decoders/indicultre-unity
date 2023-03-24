@@ -606,19 +606,21 @@ namespace MetaMask
         protected void OnAccountsChanged(JsonElement accounts)
         {
             MetaMaskDebug.Log("Account changed");
-            try
-            {
+            
                 this.selectedAddress = accounts[0].ToString();
+            MetaMaskDebug.Log(accounts[0]);
+            MetaMaskDebug.Log(accounts);
+            MetaMaskDebug.Log(this.selectedAddress);
                 AccountChanged?.Invoke(this, EventArgs.Empty);
                 if (this.paused)
                 {
                     OnWalletReady();
                 }
-            }
-            catch
-            {
-                this.selectedAddress = string.Empty;
-            }
+            //}
+            //catch
+            //{
+            //    this.selectedAddress = string.Empty;
+            //}
         }
 
         /// <summary>Handles the event that is fired when an Chain ID changed event is received.</summary>

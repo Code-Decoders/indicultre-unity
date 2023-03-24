@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Numerics;
+using Nethereum.Util;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class ButtonHandler : MonoBehaviour
         if (name == "Bid") {
             inputForm.SetActive(true);
         } else if (name == "Collect") {
-            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Collect(MetaState.token_id.ToString());
+            GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Collect(MetaState.token_id);
 /*#if !UNITY_EDITOR
             Withdraw(MetaState.token_id);
 #endif*/
@@ -41,7 +42,7 @@ public class ButtonHandler : MonoBehaviour
     }
 
     public void onBid() {
-        GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Bid(MetaState.token_id.ToString(), new BigInteger(Double.Parse(MetaState.bid)));
+        GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().Bid(MetaState.token_id.ToString(), new BigDecimal(new Decimal(Double.Parse(MetaState.bid))));
 /*#if !UNITY_EDITOR
         Bid(data);
 #endif*/

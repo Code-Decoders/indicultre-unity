@@ -69,6 +69,7 @@ public class DetailController : MonoBehaviour
             amount.SetActive(true);
             owner.SetActive(true);
             bid.SetActive(true);
+            print(GameObject.FindObjectOfType<MetaMask.Unity.Samples.MetaMaskDemo>().getUser());
             timer.GetComponent<CounterController>().ChangeTime(MetaState.nft.end_timestamp, MetaState.nft.id);
         }
 

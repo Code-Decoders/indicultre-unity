@@ -13,7 +13,8 @@ using Nethereum.ABI.FunctionEncoding;
 using Nethereum.Contracts;
 using Nethereum.ABI.Model;
 using System.Numerics;
-using Nethereum.Contracts;
+using Nethereum.Util;
+
 
 
 
@@ -88,8 +89,8 @@ namespace MetaMask.Unity.Samples
         /// <summary>Raised when the wallet is connected.</summary>
         private void walletConnected(object sender, EventArgs e)
         {
-            SceneManager.LoadScene("MainScene");
             onWalletConnected?.Invoke(this, EventArgs.Empty);
+            SceneManager.LoadScene("MainScene");
         }
 
         /// <summary>Raised when the wallet is disconnected.</summary>
@@ -203,12 +204,12 @@ namespace MetaMask.Unity.Samples
             if (data != null)
             {
                 var owner = await indiCultureNFTConsole.GetOwnerOf(id);
-                NFTData nftData = new NFTData(Int16.Parse(data.TokenId.ToString()), owner, indiCultre.ConvertWei(data.BidAmount), data.Bidder, data.EndTimestamp.ToString() + "000");
+                NFTData nftData = new NFTData(Int16.Parse(data.TokenId.ToString()), owner.ToLower(), indiCultre.ConvertWei(data.BidAmount), data.Bidder.ToLower(), data.EndTimestamp.ToString() + "000");
                 MetaState.nft = nftData;
             }
         }
 
-        public async void Collect(string id)
+        public async void Collect(int id)
         {
             TransactionInput input = new IndiCultre.IndiCultreConsole().Collect(id, MetaMaskUnity.Instance.Wallet.SelectedAddress);
             TransactionData transactionData = new TransactionData(input.To, input.From, input.Data, "0x0");
@@ -221,7 +222,7 @@ namespace MetaMask.Unity.Samples
              await MetaMaskUnity.Instance.Wallet.Request(request);
         }
 
-        public async void Bid(string id, BigInteger amount)
+        public async void Bid(string id,BigDecimal  amount)
         {
             TransactionInput input = new IndiCultre.IndiCultreConsole().Bid(id, MetaMaskUnity.Instance.Wallet.SelectedAddress, amount);
             TransactionData transactionData = new TransactionData(input.To, input.From, input.Data, input.Value.HexValue);

@@ -1288,6 +1288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &166533681
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1389,6 +1391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &177512989
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2059,6 +2063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &236544194
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2604,6 +2610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &287698324
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3246,6 +3254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &341972815
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4400,7 +4410,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3107459617028279915, guid: 4d70977260a4df64d9088a29dc5ad759, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4999,6 +5009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &431786744
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5100,6 +5112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &443112732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6708,6 +6722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &566356015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9747,6 +9763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!4 &753600592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 430272, guid: a8af4b644620845289b210a472d4cf80, type: 3}
@@ -9816,6 +9834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &761562281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10348,6 +10368,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &809099391
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11192,6 +11214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!1001 &892784754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13116,7 +13140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7998390759824753287, guid: fea538ba0ea812a4aacf1dd48c93ffab, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14588,6 +14612,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1046970506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14689,6 +14715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1048313269
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15987,6 +16015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1180408071
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18591,6 +18621,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1327659950
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19353,6 +19385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1409011437
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19454,6 +19488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1411626055
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19993,6 +20029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1436108480
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20094,6 +20132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1436413227
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21080,6 +21120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1542126579
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21275,6 +21317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1558056549
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21376,6 +21420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1558276253
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23016,6 +23062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1693615294
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24110,6 +24158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1746023676
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25626,6 +25676,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1873394699
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26032,6 +26084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1918314211
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26133,6 +26187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 28876496010075788}
   language: english
+  panelOpen: 0
+  timer: 0
 --- !u!23 &1921090930
 MeshRenderer:
   m_ObjectHideFlags: 0
