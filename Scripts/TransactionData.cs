@@ -1,4 +1,5 @@
-
+using Nethereum.Hex.HexTypes;
+using System.Numerics;
 
 class TransactionData
 {
@@ -18,25 +19,25 @@ class TransactionData
 
 class AddEthereumChainParameter
 {
-    public string chainId = "0x13881"; // A 0x-prefixed hexadecimal string
-    public string chainName = "Mumbai";
+    public string chainId = new HexBigInteger(new BigInteger(5001)).HexValue; // A 0x-prefixed hexadecimal string
+    public string chainName = "Mantle Testnet";
     public NativeCurrency nativeCurrency = new NativeCurrency();
 
-    public string[] rpcUrls = new string[] { "https://rpc-mumbai.maticvigil.com" };
-    public string[] blockExplorerUrls = new string[] { "https://mumbai.polygonscan.com/" };
+    public string[] rpcUrls = new string[] { "https://rpc.testnet.mantle.xyz/" };
+    public string[] blockExplorerUrls = new string[] { "https://explorer.testnet.mantle.xyz/" };
 }
 
 [System.Serializable]
 class NativeCurrency
 {
-    string name;
-    string symbol;
-    int decimals = 18;
+    public string name;
+    public string symbol;
+    public int decimals = 18;
 
     public NativeCurrency()
     {
-        name = "MATIC";
-        symbol = "MATIC";
+        name = "BIT";
+        symbol = "BIT";
     }
 }
 

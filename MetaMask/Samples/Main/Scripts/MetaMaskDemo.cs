@@ -14,9 +14,7 @@ using Nethereum.Contracts;
 using Nethereum.ABI.Model;
 using System.Numerics;
 using Nethereum.Util;
-
-
-
+using System.Threading.Tasks;
 
 namespace MetaMask.Unity.Samples
 {
@@ -87,15 +85,20 @@ namespace MetaMask.Unity.Samples
         }
 
         /// <summary>Raised when the wallet is connected.</summary>
-        private void walletConnected(object sender, EventArgs e)
+        private async void walletConnected(object sender, EventArgs e)
         {
             onWalletConnected?.Invoke(this, EventArgs.Empty);
+            await Sign();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             SceneManager.LoadScene("MainScene");
         }
 
         /// <summary>Raised when the wallet is disconnected.</summary>
         private void walletDisconnected(object sender, EventArgs e)
         {
+            Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("MetaMaskMain");
             onWalletDisconnected?.Invoke(this, EventArgs.Empty);
         }
@@ -157,31 +160,8 @@ namespace MetaMask.Unity.Samples
         /// <summary>Signs a message with the user's private key.</summary>
         /// <param name="msgParams">The message to sign.</param>
         /// <exception cref="InvalidOperationException">Thrown when the application isn't in foreground.</exception>
-        public async void Sign()
+        public async Task Sign()
         {
-            //var address = "0xD98d0F8d0493408e218533AeFBf73bEEA67052E8";
-            //var abi = "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"num\",\"type\":\"uint256\"}],\"name\":\"store\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"retrieve\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]";
-            //var web3 = new Web3("https://rpc-mumbai.maticvigil.com");
-
-
-            /*var contract = new ContractBuilder(abi, address);
-            var functionAbi = contract.GetFunctionBuilder("store").CreateTransactionInput(MetaMaskUnity.Instance.Wallet.SelectedAddress, new object[] { "1" });
-            Debug.Log(functionAbi.Data);
-            Debug.Log(functionAbi.From);
-            Debug.Log(functionAbi.To);
-            var transaction = new TransactionBuidler(
-                functionAbi.To,
-                functionAbi.From,
-                functionAbi.Data,
-                "0x0"
-                );*/
-            //var callContract = web3.Eth.GetContract(abi, address);
-            //var function = callContract.GetFunction("retrieve");
-
-
-            //string msgParams = "{\"domain\":{\"chainId\":80001,\"name\":\"Ether Mail\",\"verifyingContract\":\"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC\",\"version\":\"1\"},\"message\":{\"contents\":\"Hello, Bob!\",\"from\":{\"name\":\"Cow\",\"wallets\":[\"0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826\",\"0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF\"]},\"to\":[{\"name\":\"Bob\",\"wallets\":[\"0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB\",\"0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57\",\"0xB0B0b0b0b0b0B000000000000000000000000000\"]}]},\"primaryType\":\"Mail\",\"types\":{\"EIP712Domain\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"version\",\"type\":\"string\"},{\"name\":\"chainId\",\"type\":\"uint256\"},{\"name\":\"verifyingContract\",\"type\":\"address\"}],\"Group\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"members\",\"type\":\"Person[]\"}],\"Mail\":[{\"name\":\"from\",\"type\":\"Person\"},{\"name\":\"to\",\"type\":\"Person[]\"},{\"name\":\"contents\",\"type\":\"string\"}],\"Person\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"wallets\",\"type\":\"address[]\"}]}}";
-            //string from = MetaMaskUnity.Instance.Wallet.SelectedAddress;
-            //string msg = "{\"chainId\":\"0x13881\"}";
             AddEthereumChainParameter addEthereumChainParameter = new AddEthereumChainParameter();
 
             var paramsArray = new AddEthereumChainParameter[] { addEthereumChainParameter };
@@ -193,7 +173,7 @@ namespace MetaMask.Unity.Samples
             };
             onTransactionSent?.Invoke(this, EventArgs.Empty);
             await MetaMaskUnity.Instance.Wallet.Request(request);
-            
+
         }
 
         public async void GetNFT(string id)

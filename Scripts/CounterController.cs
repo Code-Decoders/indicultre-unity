@@ -44,7 +44,7 @@ public class CounterController : MonoBehaviour {
 
     public void SetTimer(string value) {
         text.text = "Time Remaining: " + value;
-        amount.GetComponent<TextMeshProUGUI>().text = "Min Bid: " + MetaState.nft.min_bid + "MATIC";
+        amount.GetComponent<TextMeshProUGUI>().text = "Min Bid: " + MetaState.nft.min_bid + "BIT";
         bidder.GetComponent<TextMeshProUGUI>().text = "Highest Bidder: " + MetaState.nft.highest_bidder;
         System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
         epochStart = epochStart.ToLocalTime();
@@ -76,7 +76,7 @@ public class CounterController : MonoBehaviour {
         {
             bidder.GetComponent<TextMeshProUGUI>().text = "Owner: " + MetaState.nft.owner;
         }
-        amount.GetComponent<TextMeshProUGUI>().text = "Sold at: " + MetaState.nft.min_bid + "MATIC";
+        amount.GetComponent<TextMeshProUGUI>().text = "Sold at: " + MetaState.nft.min_bid + "BIT";
         if (Int64.Parse(MetaState.nft.end_timestamp) < cur_time && MetaState.nft.owner == user && MetaState.nft.highest_bidder == user)
         {
             
