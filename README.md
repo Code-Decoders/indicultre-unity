@@ -23,7 +23,7 @@ Some features of IndiCultre are:
 
 Youtube Video Demo
 
-[![Youtube Video](https://img.youtube.com/vi/N_1A01mkE70/sddefault.jpg)](https://www.youtube.com/watch?v=N_1A01mkE70&t=1s&ab_channel=CodeDecoders)
+[![Youtube Video](https://img.youtube.com/vi/N_1A01mkE70/sddefault.jpg)](https://youtu.be/N_1A01mkE70)
 
 
 ## Tech Stack
