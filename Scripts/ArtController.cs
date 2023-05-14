@@ -6,6 +6,7 @@ public class ArtController : MonoBehaviour
 {
 
     public int token_id;
+    
     // Start is called before the first frame update
     void Start()
     {
