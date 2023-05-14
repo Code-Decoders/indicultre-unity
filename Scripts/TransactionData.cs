@@ -19,12 +19,12 @@ class TransactionData
 
 class AddEthereumChainParameter
 {
-    public string chainId = new HexBigInteger(new BigInteger(5001)).HexValue; // A 0x-prefixed hexadecimal string
-    public string chainName = "Mantle Testnet";
+    public string chainId = new HexBigInteger(new BigInteger(97)).HexValue; // A 0x-prefixed hexadecimal string
+    public string chainName = "BNB Smart Chain Testnet";
     public NativeCurrency nativeCurrency = new NativeCurrency();
 
-    public string[] rpcUrls = new string[] { "https://rpc.testnet.mantle.xyz/" };
-    public string[] blockExplorerUrls = new string[] { "https://explorer.testnet.mantle.xyz/" };
+    public string[] rpcUrls = new string[] { "https://data-seed-prebsc-1-s1.binance.org:8545/" };
+    public string[] blockExplorerUrls = new string[] { "https://testnet.bscscan.com/" };
 }
 
 [System.Serializable]
@@ -36,8 +36,8 @@ class NativeCurrency
 
     public NativeCurrency()
     {
-        name = "BIT";
-        symbol = "BIT";
+        name = "BNB";
+        symbol = "BNB";
     }
 }
 
